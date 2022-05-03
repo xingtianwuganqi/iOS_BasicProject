@@ -12,7 +12,7 @@ extension UIImage {
     ///
     /// - Parameter color: 需要转换的颜色
     /// - Returns: 返回一个UIImage 对象
-    class func image(_ color: UIColor) ->UIImage {
+    public class func image(_ color: UIColor) ->UIImage {
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
@@ -25,7 +25,7 @@ extension UIImage {
 
 }
 
-enum ImageType {
+public enum ImageType {
     case origin
     case thumbSeven
     case thumbFour

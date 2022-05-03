@@ -33,7 +33,7 @@
 		C47335D828212B220070FF9E /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47335D528212B220070FF9E /* BaseNavigationController.swift */; };
 		C47335D928212B220070FF9E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47335D628212B220070FF9E /* BaseViewController.swift */; };
 		C47335DA28212B220070FF9E /* TabbarItemContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47335D728212B220070FF9E /* TabbarItemContentView.swift */; };
-		C47335DC28212CDC0070FF9E /* NavigatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47335DB28212CDC0070FF9E /* NavigatorService.swift */; };
+		C47335DE282184170070FF9E /* NavigatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47335DD282184170070FF9E /* NavigatorService.swift */; };
 		EDB6C512C950B1C0D23FA903 /* Pods_BasicProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF86D5EAD68C470D2CCF2B53 /* Pods_BasicProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +66,7 @@
 		C47335D528212B220070FF9E /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		C47335D628212B220070FF9E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C47335D728212B220070FF9E /* TabbarItemContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarItemContentView.swift; sourceTree = "<group>"; };
-		C47335DB28212CDC0070FF9E /* NavigatorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigatorService.swift; sourceTree = "<group>"; };
+		C47335DD282184170070FF9E /* NavigatorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigatorService.swift; sourceTree = "<group>"; };
 		DF86D5EAD68C470D2CCF2B53 /* Pods_BasicProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasicProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8567D94E9FF74269291134B /* Pods-BasicProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicProject.debug.xcconfig"; path = "Target Support Files/Pods-BasicProject/Pods-BasicProject.debug.xcconfig"; sourceTree = "<group>"; };
 		ECB3D1ECCFE15A4FB92CA924 /* Pods-BasicProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicProject.release.xcconfig"; path = "Target Support Files/Pods-BasicProject/Pods-BasicProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -158,14 +158,14 @@
 		C47335C428212A7E0070FF9E /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				C47335D528212B220070FF9E /* BaseNavigationController.swift */,
 				C47335D628212B220070FF9E /* BaseViewController.swift */,
+				C47335D528212B220070FF9E /* BaseNavigationController.swift */,
 				C47335D728212B220070FF9E /* TabbarItemContentView.swift */,
 				C47335C528212A7E0070FF9E /* ContentPageViewController.swift */,
 				C47335C828212A7E0070FF9E /* AppHelper.swift */,
 				C47335CA28212A7E0070FF9E /* BaseRefresh.swift */,
 				C47335CB28212A7E0070FF9E /* BaseProtocol.swift */,
-				C47335DB28212CDC0070FF9E /* NavigatorService.swift */,
+				C47335DD282184170070FF9E /* NavigatorService.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -298,6 +298,7 @@
 				C47335B2282119660070FF9E /* DateExtension.swift in Sources */,
 				C47335BF282119840070FF9E /* NetWorkMonitoring.swift in Sources */,
 				C47335CD28212A7E0070FF9E /* ContentPageViewController.swift in Sources */,
+				C47335DE282184170070FF9E /* NavigatorService.swift in Sources */,
 				C47335D328212A7E0070FF9E /* BaseProtocol.swift in Sources */,
 				C47335C1282119840070FF9E /* Common.swift in Sources */,
 				C47335D828212B220070FF9E /* BaseNavigationController.swift in Sources */,
@@ -312,7 +313,6 @@
 				C47335AF282119660070FF9E /* URLExtension.swift in Sources */,
 				C47335AB282119660070FF9E /* MBProgressHUD+XYExtension.swift in Sources */,
 				C47335D028212A7E0070FF9E /* AppHelper.swift in Sources */,
-				C47335DC28212CDC0070FF9E /* NavigatorService.swift in Sources */,
 				C47335D928212B220070FF9E /* BaseViewController.swift in Sources */,
 				C473358C282118CB0070FF9E /* AppDelegate.swift in Sources */,
 				C47335B1282119660070FF9E /* StringExtension.swift in Sources */,
@@ -474,6 +474,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -503,6 +504,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -11,7 +11,7 @@ extension UIViewController {
     // MARK: - 查找当前显示的控制器
     
     // 获取顶层控制器 根据window
-    static func topViewController() -> UIViewController? {
+    public static func topViewController() -> UIViewController? {
         var window = UIApplication.shared.keyWindow
         //是否为当前显示的window
         if window?.windowLevel != UIWindow.Level.normal {
@@ -26,7 +26,7 @@ extension UIViewController {
         return topViewControllerBy(window?.rootViewController)
     }
     /// 根据控制器获取 顶层控制器
-    private static func topViewControllerBy(_ viewController :UIViewController?) -> UIViewController? {
+    public static func topViewControllerBy(_ viewController :UIViewController?) -> UIViewController? {
         guard let viewController = viewController else {
             printLog("找不到顶层控制器")
             return nil

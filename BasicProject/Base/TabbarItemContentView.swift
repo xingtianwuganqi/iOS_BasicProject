@@ -7,7 +7,7 @@
 
 import UIKit
 import ESTabBarController_swift
-class TabbarItemContentView: ESTabBarItemContentView {
+public class TabbarItemContentView: ESTabBarItemContentView {
 
     public var duration = 0.2
 
@@ -25,12 +25,12 @@ class TabbarItemContentView: ESTabBarItemContentView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func selectAnimation(animated: Bool, completion: (() -> ())?) {
+    public override func selectAnimation(animated: Bool, completion: (() -> ())?) {
         self.bounceAnimation()
         completion?()
     }
     
-    override func reselectAnimation(animated: Bool, completion: (() -> ())?) {
+    public override func reselectAnimation(animated: Bool, completion: (() -> ())?) {
         self.bounceAnimation()
         completion?()
     }

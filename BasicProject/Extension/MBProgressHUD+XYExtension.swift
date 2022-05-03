@@ -51,7 +51,7 @@ extension UIView {
 }
 
 extension MBProgressHUD {
-    static let XYToastDefaultDuration: TimeInterval = 2.0
+    public static let XYToastDefaultDuration: TimeInterval = 2.0
     fileprivate struct MBProgressHUDKeys {
         static var buttonPadding = "com.alpface.MBProgressHUD.buttonPadding"
     }
@@ -75,7 +75,7 @@ extension MBProgressHUD {
     
     // MARK: - Text
     
-    class func xy_show(_ message: String, delay: TimeInterval = XYToastDefaultDuration, toView: UIView? = nil, offset: CGPoint = .zero) {
+    public class func xy_show(_ message: String, delay: TimeInterval = XYToastDefaultDuration, toView: UIView? = nil, offset: CGPoint = .zero) {
         MBProgressHUD.xy_hide()
         let hud = self.xy_createHud(message: message, toView: toView, offset: offset)
         hud.mode = .text
@@ -86,7 +86,7 @@ extension MBProgressHUD {
     
     // MARK: - Activity
     
-    class func xy_show(activity message: String?, delay: TimeInterval = 0.0, toView: UIView? = nil, offset: CGPoint = .zero) {
+    public class func xy_show(activity message: String?, delay: TimeInterval = 0.0, toView: UIView? = nil, offset: CGPoint = .zero) {
         MBProgressHUD.xy_hide()
         let hud = self.xy_createHud(message: message, toView: toView, offset: offset)
         hud.mode = .indeterminate

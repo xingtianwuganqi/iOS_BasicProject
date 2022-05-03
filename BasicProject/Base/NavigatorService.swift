@@ -8,10 +8,10 @@
 import RxSwift
 import URLNavigator
 
-protocol NavigatorServiceType {
-    var navigatorSubject: PublishSubject<NavigatorItem> { get }
-}
-
-enum NavigatorItem {
-
-}
+//public protocol NavigatorServiceType {
+//    var navigatorSubject: PublishSubject<NavigatorItemType> { get }
+//}
+//
+//public protocol NavigatorItemType {
+//
+//}

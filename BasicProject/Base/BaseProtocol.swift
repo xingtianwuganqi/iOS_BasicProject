@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-enum Paging {
+public enum Paging {
     case refresh
     case next
 }
 
 /// 常用状态
-protocol StateProtocal {
+public protocol StateProtocal {
     var isLoading: Bool {get set}
     var isRefreshing: Bool {get set}
     var endRefreshing: RefreshState? {get set}
@@ -24,7 +24,7 @@ protocol StateProtocal {
 }
 
 /// 刷新状态
-protocol RefreshViewControllerProtocal {
+public protocol RefreshViewControllerProtocal {
     func hasHeadRefresh() -> Bool
     func hasFooterRefresh() -> Bool
     // MARK: 重新请求新数据

@@ -7,17 +7,17 @@
 
 import Foundation
 import RxSwift
-final class AppHelper {
-    static let shared = AppHelper.init()
+public final class AppHelper {
+    public static let shared = AppHelper.init()
     public init() {
         
     }
     
-    lazy var unreadNum = PublishSubject<Int>()
-    lazy var versionNum: Int = 0
-    var naviService: NavigatorServiceType?
+    public lazy var unreadNum = PublishSubject<Int>()
+    public lazy var versionNum: Int = 0
+    public var loginStatusError: (() -> Void)?
     
-    static func currentTabBarController() -> UITabBarController? {
+    public static func currentTabBarController() -> UITabBarController? {
         
         if let rootViewController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController {
             return rootViewController
@@ -25,7 +25,7 @@ final class AppHelper {
         return nil
     }
     
-    static func topNavigationController() -> UINavigationController? {
+    public static func topNavigationController() -> UINavigationController? {
         var nac = UIViewController.topViewController()?.navigationController
         if nac == nil || nac?.isKind(of: UIImagePickerController.self) == true {
             // 需要排除掉UIImagePickerController
@@ -35,7 +35,7 @@ final class AppHelper {
         return nac
     }
     
-    static func topWindow() -> UIWindow? {
+    public static func topWindow() -> UIWindow? {
         let windows = UIApplication.shared.windows
         let UIRemoteKeyboardWindow: AnyClass? = NSClassFromString("UIRemoteKeyboardWindow")
         let topWindow = windows.last {

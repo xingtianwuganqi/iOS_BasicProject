@@ -12,27 +12,21 @@ import HandyJSON
 import Alamofire
 import MBProgressHUD
 
-var baseUrlConfig: baseUrlType = .formal
+public var baseUrlConfig: String = ""
 
-enum baseUrlType: String {
-    case local = "http://127.0.0.1:8000"
-    case test = "https://test.rxswift.cn"
-    case formal = "https://rescue.rxswift.cn"
-}
-
-struct EmptyModel: HandyJSON {
-    
+public struct EmptyModel: HandyJSON {
+    public init() {}
 }
 
 public struct BaseModel<T: HandyJSON>: HandyJSON {
     
     public typealias ModelType = T
     
-    var code: Int?
-    var message: String?
-    var data: ModelType?
-    var dataArr: [ModelType]?
-    var isSuccess: Bool = false
+    public var code: Int?
+    public var message: String?
+    public var data: ModelType?
+    public var dataArr: [ModelType]?
+    public var isSuccess: Bool = false
     
     public init() {}
     
@@ -85,12 +79,11 @@ extension BaseTargetType {
     }
     
     public var baseURL: URL {
-        return URL(string: baseUrlConfig.rawValue)!
+        return URL(string: baseUrlConfig)!
     }
 }
 
-
-final class NetWorking<T: BaseTargetType> : MoyaProvider<T>{
+public final class NetWorking<T: BaseTargetType> : MoyaProvider<T>{
 //    init() {
 //
 ////        let token = "d3d833b59e00683a1cba7323:65cfc43e022d003f39c102f9"
@@ -119,7 +112,7 @@ final class NetWorking<T: BaseTargetType> : MoyaProvider<T>{
 //        super.init(callbackQueue: DispatchQueue.main, session: session, plugins: [])
 //    }
 
-    func request(
+    public func request(
         _ target: T,
         file: StaticString = #file,
         function: StaticString = #function,
@@ -136,7 +129,7 @@ final class NetWorking<T: BaseTargetType> : MoyaProvider<T>{
             if let baseModel = err.response?.mapModel(EmptyModel.self),baseModel.code == 401 {
                 DispatchQueue.main.async {
                     MBProgressHUD.xy_show("认证有误,请重新登录")
-
+                    AppHelper.shared.loginStatusError?()
                 }
             }
             printLog("☹️☹️☹️ Error: \(target.baseURL)\(target.path) ---- \(err.response?.statusCode ?? 0)")
@@ -180,7 +173,7 @@ extension Single where Element == Response {
 }
 
 struct SessionNetworking {
-    func httpRequest(request_url:String,header: [String: String],completion: ((Any) -> Void)?) {
+    public func httpRequest(request_url:String,header: [String: String],completion: ((Any) -> Void)?) {
             guard let url = URL(string: request_url) else {
                 return
             }

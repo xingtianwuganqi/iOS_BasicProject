@@ -13,7 +13,7 @@ extension UICollectionView: ETExtensionCompatible{}
 
 extension ET where Base: UITableView {
     
-    func reloadDataWith(imageUrl: String) {
+    public func reloadDataWith(imageUrl: String) {
         let reloadState = WebImageSizeCache.shard.reloadStateFromCache(for: imageUrl)
         if !reloadState {
             base.reloadData()
@@ -21,7 +21,7 @@ extension ET where Base: UITableView {
         }
     }
     
-    func reloadDataWith(imageUrl: String, atIndexPaths indexPaths: [IndexPath], rowAnimation: UITableView.RowAnimation) {
+    public func reloadDataWith(imageUrl: String, atIndexPaths indexPaths: [IndexPath], rowAnimation: UITableView.RowAnimation) {
         let reloadState = WebImageSizeCache.shard.reloadStateFromCache(for: imageUrl)
         if !reloadState {
             base.reloadRows(at: indexPaths, with: rowAnimation)
@@ -31,7 +31,7 @@ extension ET where Base: UITableView {
 }
 
 extension ET where Base: UICollectionView {
-    func reloadDataWith(imageUrl: String) {
+    public func reloadDataWith(imageUrl: String) {
         let reloadState = WebImageSizeCache.shard.reloadStateFromCache(for: imageUrl)
         if !reloadState {
             base.reloadData()
@@ -39,7 +39,7 @@ extension ET where Base: UICollectionView {
         }
     }
     
-    func reloadDataWith(imageUrl: String, atIndexPaths indexPaths: [IndexPath], rowAnimation: UITableView.RowAnimation) {
+    public func reloadDataWith(imageUrl: String, atIndexPaths indexPaths: [IndexPath], rowAnimation: UITableView.RowAnimation) {
         let reloadState = WebImageSizeCache.shard.reloadStateFromCache(for: imageUrl)
         if !reloadState {
             base.reloadItems(at: indexPaths)
@@ -48,9 +48,9 @@ extension ET where Base: UICollectionView {
     }
 }
 
-final class WebImageSizeCache {
+public final class WebImageSizeCache {
     
-    static let shard = WebImageSizeCache()
+    public static let shard = WebImageSizeCache()
     
     fileprivate lazy var memCache = NSCache<AnyObject, AnyObject>()
     fileprivate lazy var fileManager = FileManager()
@@ -66,7 +66,7 @@ final class WebImageSizeCache {
      *  @param key   唯一的imageSize缓存键，通常是图像绝对URL
      *  @param completion An block that should be executed after the imageSize has been saved (optional)
      */
-    func cacheImageSizeBy(image: UIImage, for key: String, completion: ((_ isSuccess: Bool) -> Void)?) {
+    public func cacheImageSizeBy(image: UIImage, for key: String, completion: ((_ isSuccess: Bool) -> Void)?) {
         DispatchQueue.global(qos: .default).async {
             let isSuccess = self.cacheImageSizeBy(image: image, for: key)
             DispatchQueue.main.async {
@@ -96,7 +96,7 @@ final class WebImageSizeCache {
      *
      *  @return imageSize 图片的尺寸
      */
-    func imageSizeFromCacheFor(key: String) -> CGSize {
+    public func imageSizeFromCacheFor(key: String) -> CGSize {
         let keyName = "sizeKeyName:\(key)".et.md5String
         var data = dataFromMemCacheFor(key: keyName)
         if data == nil {
@@ -147,7 +147,7 @@ final class WebImageSizeCache {
      *
      *  @return reloadState
      */
-    func reloadStateFromCache(for key: String) -> Bool {
+    public func reloadStateFromCache(for key: String) -> Bool {
         let keyName = "reloadKeyName:\(key)".et.md5String
         var data = dataFromMemCacheFor(key: keyName)
         if data == nil {
@@ -185,7 +185,7 @@ final class WebImageSizeCache {
     ///  @param: url 图片URL
     ///  @param: layoutWidth imageView 宽度
     ///  @param: estimateHeight 预估高度,(此高度仅在图片尚未加载出来前起作用,不影响真实高度)
-    func imageHeightBy(url: String, layoutWidth: CGFloat, estimateHeight: CGFloat = 200.0) -> CGFloat {
+    public func imageHeightBy(url: String, layoutWidth: CGFloat, estimateHeight: CGFloat = 200.0) -> CGFloat {
         var showHeight = estimateHeight
         if url.count == 0 || layoutWidth <= 0.01 {
             return showHeight

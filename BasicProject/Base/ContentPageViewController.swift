@@ -9,12 +9,12 @@
 import UIKit
 
 @objc(RTHomeContentPageViewControllerDelegate)
-protocol ContentPageViewControllerDelegate: NSObjectProtocol {
+public protocol ContentPageViewControllerDelegate: NSObjectProtocol {
     @objc optional func didChangePageWithIndex(index: Int, controller: ContentPageViewController)
     @objc optional func willChangePageWithIndex(index: Int, controller: ContentPageViewController)
 }
 
-class ContentPageViewController: UIViewController {
+open class ContentPageViewController: UIViewController {
     fileprivate var isViewDidLoad = false
     public weak var delegate: ContentPageViewControllerDelegate?
     public var pages: [UIViewController]? = nil {
@@ -61,11 +61,11 @@ class ContentPageViewController: UIViewController {
         self.defaultIndex = defaultIndex
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         self.isViewDidLoad = true
         super.viewDidLoad()
         
@@ -74,11 +74,11 @@ class ContentPageViewController: UIViewController {
         self.updatePages()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    public func showPage(index: Int, animated: Bool) {
+    open func showPage(index: Int, animated: Bool) {
         
         guard let pages = self.pages else {
             return
@@ -107,7 +107,7 @@ class ContentPageViewController: UIViewController {
         
     }
     
-    public func reloadPage(index: Int, animated: Bool) {
+    open func reloadPage(index: Int, animated: Bool) {
         
         guard let pages = self.pages else {
             return
@@ -133,7 +133,7 @@ class ContentPageViewController: UIViewController {
         
     }
     
-    public func index(controller: UIViewController?) -> Int {
+    open func index(controller: UIViewController?) -> Int {
         guard let pages = self.pages else {
             return NSNotFound
         }
@@ -176,7 +176,7 @@ class ContentPageViewController: UIViewController {
         self.scrollView?.isScrollEnabled = self.isScrollEnabled
     }
     
-    public func updatePages() {
+    open func updatePages() {
         if self.isViewDidLoad == false {
             return
         }
@@ -193,7 +193,7 @@ class ContentPageViewController: UIViewController {
 
 extension ContentPageViewController: UIGestureRecognizerDelegate {
     
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    open func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if self.isScrollEnabled == false {
             return true
         }
@@ -214,7 +214,7 @@ extension ContentPageViewController: UIGestureRecognizerDelegate {
 }
 extension ContentPageViewController: UIPageViewControllerDelegate {
     
-    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+    open func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
         self.transitionFinish = false
         self.pendingViewController = pendingViewControllers.first
         let index = self.index(controller: self.pendingViewController)
@@ -231,7 +231,7 @@ extension ContentPageViewController: UIPageViewControllerDelegate {
         }
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    open func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         
         let vc = previousViewControllers.last
         let previousIndexx = self.index(controller: vc)
@@ -260,7 +260,7 @@ extension ContentPageViewController: UIPageViewControllerDelegate {
 }
 
 extension ContentPageViewController: UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    open func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         var index = self.index(controller: viewController)
         if index == 0 || index == NSNotFound {
             return nil
@@ -272,7 +272,7 @@ extension ContentPageViewController: UIPageViewControllerDataSource {
         return nil
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    open func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         var index = self.index(controller: viewController)
         guard let pages = self.pages else {
             return nil;

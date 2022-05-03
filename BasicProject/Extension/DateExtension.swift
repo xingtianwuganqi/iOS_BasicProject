@@ -8,40 +8,40 @@ import Foundation
 
 extension Date {
     //年的数字
-    func year() -> Int {
+    public func year() -> Int {
         var calendar = NSCalendar.current
         calendar.firstWeekday = 2
         return calendar.component(.year, from: self)
     }
     //月的数字
-    func month() -> Int {
+    public func month() -> Int {
         var calendar = NSCalendar.current
         calendar.firstWeekday = 2
         return calendar.component(.month, from: self)
     }
     //天的数字
-    func day() -> Int {
+    public func day() -> Int {
         var calendar = NSCalendar.current
         calendar.firstWeekday = 2
         return calendar.component(.day, from: self)
     }
     //周日是第一天，周六是第七天
-    func weekday() -> Int {
+    public func weekday() -> Int {
         var calendar = NSCalendar.current
         calendar.firstWeekday = 2
         return calendar.component(.weekday, from: self)
     }
-    func isToday() -> Bool {
+    public func isToday() -> Bool {
         self.day() == Date().day() && self.month() == Date().month() && self.year() == Date().year()
     }
-    func numberOfDaysInMonth() -> Int {
+    public func numberOfDaysInMonth() -> Int {
         if let monthRange = NSCalendar(calendarIdentifier: .gregorian)?.range(of: .day, in: .month, for: self) {
             return monthRange.length
         }
         return 0
     }
     //传入一个类型的dateFormat，返回一个日期的字符串
-    func dateStringFromFormatString(_ formatString: String?) -> String {
+    public func dateStringFromFormatString(_ formatString: String?) -> String {
         guard let formatString = formatString else { return "" }
         let format = DateFormatter()
         format.dateFormat = formatString
@@ -49,14 +49,14 @@ extension Date {
         return format.string(from: self)
     }
     //月份前后的偏移。
-    func dateByAddingMonths(_ months: Int?) -> Date {
+    public func dateByAddingMonths(_ months: Int?) -> Date {
         guard let months = months else { return self }
         var components = DateComponents()
         components.month = months
         return NSCalendar.current.date(byAdding: components, to: self) ?? self
     }
     //由日期字符串和日期的格式生成Date的日期
-    static func dateWithString(_ dateString: String?, _ formatString: String?) -> Date? {
+    public static func dateWithString(_ dateString: String?, _ formatString: String?) -> Date? {
         guard let dateString = dateString , let formatString = formatString else { return nil }
         let format = DateFormatter()
         format.dateFormat = formatString

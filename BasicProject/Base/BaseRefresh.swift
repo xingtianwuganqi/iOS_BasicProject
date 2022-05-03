@@ -7,7 +7,7 @@
 
 import Foundation
 import MJRefresh
-class BaseRefresh: MJRefreshStateHeader {
+public class BaseRefresh: MJRefreshStateHeader {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,7 +50,7 @@ class BaseRefresh: MJRefreshStateHeader {
      base.mj_footer = footer
  }
  */
-class BaseFooterRefresh: MJRefreshAutoStateFooter {
+public class BaseFooterRefresh: MJRefreshAutoStateFooter {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setTitle("上拉加载更多...", for: .idle)
@@ -70,7 +70,7 @@ extension MJRefreshFooter: ETExtensionCompatible {
 }
 
 extension ET where Base: MJRefreshFooter {
-    func setRefState(state: RefreshState) {
+    public func setRefState(state: RefreshState) {
         let refresh = base as? MJRefreshAutoStateFooter
         switch state {
         case .empty:
@@ -85,6 +85,6 @@ extension ET where Base: MJRefreshFooter {
     }
 }
 
-enum RefreshState: Int {
+public enum RefreshState: Int {
     case empty = 0, idle, pulling, refreshing,willRefresh, noMoreData
 }

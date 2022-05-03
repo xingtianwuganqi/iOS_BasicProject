@@ -9,11 +9,11 @@
 import Foundation
 import Reachability
 
-final class NetWorkMonitoring {
+public final class NetWorkMonitoring {
     
-    static let shareMonitor = NetWorkMonitoring()
+    public static let shareMonitor = NetWorkMonitoring()
     
-    var reachability : Reachability?
+    public var reachability : Reachability?
     
     private var noReachability: ((_ net: Bool) -> Void)?
     
@@ -24,7 +24,7 @@ final class NetWorkMonitoring {
         self.startRun()
     }
     
-    func startRun() {
+    public func startRun() {
         do {
             try reachability?.startNotifier()
         } catch {
@@ -32,12 +32,12 @@ final class NetWorkMonitoring {
         }
     }
     
-    func stopRun() {
+    public func stopRun() {
         reachability?.stopNotifier()
     }
 
     
-    func monitoring(noReachability:((_ net: Bool) -> Void)? = nil) {
+    public func monitoring(noReachability:((_ net: Bool) -> Void)? = nil) {
         reachability?.whenReachable = {
             reachability in
             if reachability.connection == .wifi {
@@ -68,7 +68,7 @@ final class NetWorkMonitoring {
         }
     }
     
-    var currentNetState: Reachability.Connection?  {
+    public var currentNetState: Reachability.Connection?  {
         return reachability?.connection
     }
     

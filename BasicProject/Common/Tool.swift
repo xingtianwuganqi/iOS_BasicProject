@@ -10,9 +10,9 @@ import UIKit
 import Photos
 
 
-class Tool: NSObject  {
+public class Tool: NSObject  {
     
-    static let shared = Tool()
+    public static let shared = Tool()
     
     private override init(){
         
@@ -20,7 +20,7 @@ class Tool: NSObject  {
     
     private var timeObserve: DispatchSourceTimer? //定时任务
     
-    func getTextHeigh(textStr:String,font:UIFont,width:CGFloat) -> CGFloat {
+    public func getTextHeigh(textStr:String,font:UIFont,width:CGFloat) -> CGFloat {
         let normalText: NSString = textStr as NSString
         let size = CGSize(width: ceil(width), height: CGFloat(MAXFLOAT))//CGSizeMake(width,1000)
         let dic = NSDictionary(object: font, forKey: kCTFontAttributeName as! NSCopying)
@@ -28,7 +28,7 @@ class Tool: NSObject  {
         return ceil(stringSize.height)
     }
     
-    func getSpaceLabelHeight(textStr:String,font:UIFont,width:CGFloat,space: CGFloat) -> CGFloat {
+    public func getSpaceLabelHeight(textStr:String,font:UIFont,width:CGFloat,space: CGFloat) -> CGFloat {
         
         let paragraphStyle:NSMutableParagraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .justified
@@ -44,7 +44,7 @@ class Tool: NSObject  {
     }
     
     
-    func getLabelSize(textStr:String,font:UIFont,width:CGFloat) -> CGSize {
+    public func getLabelSize(textStr:String,font:UIFont,width:CGFloat) -> CGSize {
         
         let normalText: NSString = textStr as NSString
         let size = CGSize(width: width, height: CGFloat(MAXFLOAT))//CGSizeMake(width,1000)
@@ -53,7 +53,7 @@ class Tool: NSObject  {
         return CGSize(width: ceil(stringSize.width), height: ceil(stringSize.height))
     }
     
-    func dateType(dateString: Int, format: String) -> String {
+    public func dateType(dateString: Int, format: String) -> String {
         
         let time : TimeInterval = Double(dateString)
         
@@ -66,7 +66,7 @@ class Tool: NSObject  {
         
     }
     
-    func timeUptoNow(time: Int,mate: String) -> String {
+    public func timeUptoNow(time: Int,mate: String) -> String {
         let nowDate: Date = Date()
         let t : TimeInterval = Double(time)
         let date = Date(timeIntervalSince1970: t)
@@ -86,7 +86,7 @@ class Tool: NSObject  {
         }
     }
     
-    func timeWithFramate(time: Int,mate: String) -> String {
+    public func timeWithFramate(time: Int,mate: String) -> String {
         let nowDate: Date = Date()
         let t : TimeInterval = Double(time)
         let date = Date(timeIntervalSince1970: t)
@@ -98,7 +98,7 @@ class Tool: NSObject  {
         
     }
     
-    func timeDifference(time: Int) -> String {
+    public func timeDifference(time: Int) -> String {
         
         let nowDate : Date = Date()
         
@@ -136,7 +136,7 @@ class Tool: NSObject  {
     }
     
     /// 中间带T的时间字符串
-    func timeTDate(time: String) -> String {
+    public func timeTDate(time: String) -> String {
         var timeStr = time
         if let firstStr = time.components(separatedBy: ".").first {
             timeStr = firstStr
@@ -172,7 +172,7 @@ class Tool: NSObject  {
         
     }
     
-    func setAttributed(changeString: String,originString: String,color:String,font:CGFloat) -> NSMutableAttributedString{
+    public func setAttributed(changeString: String,originString: String,color:String,font:CGFloat) -> NSMutableAttributedString{
         let attrubuteStr = NSMutableAttributedString(string: originString)
         
         let nsString = NSString(string: originString)
@@ -185,7 +185,7 @@ class Tool: NSObject  {
         return attrubuteStr
     }
     
-    func getContentAttribute(text: String,fontSize: CGFloat,textColor: UIColor,lineSpacing: CGFloat = 3) -> NSAttributedString {
+    public func getContentAttribute(text: String,fontSize: CGFloat,textColor: UIColor,lineSpacing: CGFloat = 3) -> NSAttributedString {
         // 标签显示
         let para = NSMutableParagraphStyle.init()
         para.lineSpacing = lineSpacing
@@ -199,10 +199,10 @@ class Tool: NSObject  {
         return attribute
     }
     
-    func TopViewController() -> UIViewController {
+    public func TopViewController() -> UIViewController {
         return topViewControllerWithRootViewController(rootViewContrller: (UIApplication.shared.keyWindow?.rootViewController)!)
     }
-    func topViewControllerWithRootViewController(rootViewContrller: UIViewController) -> UIViewController {
+    public func topViewControllerWithRootViewController(rootViewContrller: UIViewController) -> UIViewController {
         if rootViewContrller.isKind(of: UITabBarController.self) {
             let tabbar: UITabBarController = (rootViewContrller as? UITabBarController)!
             return topViewControllerWithRootViewController(rootViewContrller:tabbar.selectedViewController!)
@@ -217,7 +217,7 @@ class Tool: NSObject  {
         }
     }
     
-    func getTime() -> Int {
+    public func getTime() -> Int {
         //获取当前时间
         let now = NSDate()
         
@@ -228,11 +228,11 @@ class Tool: NSObject  {
         return timeStamp
     }
     
-    func getOrientation() -> UIInterfaceOrientation {
+    public func getOrientation() -> UIInterfaceOrientation {
         return UIApplication.shared.statusBarOrientation
     }
     // 字符串数组转json字符串
-    func stringFromArr(from object: Any) -> String? {
+    public func stringFromArr(from object: Any) -> String? {
         if let objectData = try? JSONSerialization.data(withJSONObject: object, options: JSONSerialization.WritingOptions(rawValue: 0)) {
             let objectString = String(data: objectData, encoding: .utf8)
             return objectString
@@ -240,7 +240,7 @@ class Tool: NSObject  {
         return nil
     }
     
-    func getRefreshState(page: Paging,datas: [Any]) -> RefreshState {
+    public func getRefreshState(page: Paging,datas: [Any]) -> RefreshState {
         if page == .refresh {
             if datas.count == 0 {
                 return .empty
@@ -265,7 +265,7 @@ class Tool: NSObject  {
     ///   - timeInterval: 间隔时间
     ///   - repeatCount: 重复次数
     ///   - handler: 循环事件,闭包参数: 1.timer 2.剩余执行次数
-    func dispatchTimer(timeInterval: Double, repeatCount: Int, handler: @escaping (DispatchSourceTimer?, Int) -> Void) {
+    public func dispatchTimer(timeInterval: Double, repeatCount: Int, handler: @escaping (DispatchSourceTimer?, Int) -> Void) {
         
         if repeatCount <= 0 {
             return
@@ -292,7 +292,7 @@ class Tool: NSObject  {
     }
     
     // MARK: 加密
-    func encryptionString(codeStr: String) -> String? {
+    public func encryptionString(codeStr: String) -> String? {
         let index: Int = Int(arc4random_uniform(100))
         let currentStr = Array(codeStr.map {$0})[index]
         guard let currentOne = self.base64CodingToString(object: "\(currentStr)") else {
@@ -337,7 +337,7 @@ class Tool: NSObject  {
     }
     
     // MARK: 图片缓存
-    func cacheReleaseImage(imgKey: String,image: UIImage,cachePath: String,userInfo: String) -> String? {
+    public func cacheReleaseImage(imgKey: String,image: UIImage,cachePath: String,userInfo: String) -> String? {
         let manager = FileManager.default
         let file = "/Library/\(cachePath)_\(userInfo)/"
         let basefile = NSHomeDirectory() + file
@@ -358,7 +358,7 @@ class Tool: NSObject  {
         }
     }
     
-    func loadCacheImage(filePath: String) -> UIImage? {
+    public func loadCacheImage(filePath: String) -> UIImage? {
         let path = NSHomeDirectory() + filePath
         let manager = FileManager.default
         if manager.fileExists(atPath: path) {
@@ -373,7 +373,7 @@ class Tool: NSObject  {
         return nil
     }
     
-    func removeCacheImage(cachePath: String,userInfo: String) {
+    public func removeCacheImage(cachePath: String,userInfo: String) {
         let path = NSHomeDirectory() + "/Library/\(cachePath)_\(userInfo)/"
         if FileManager.default.fileExists(atPath: path) {
             do {
@@ -384,7 +384,7 @@ class Tool: NSObject  {
         }
     }
     
-    func removeCacheImageItem(imgKey: String,image: UIImage,cachePath: String,userInfo: String) {
+    public func removeCacheImageItem(imgKey: String,image: UIImage,cachePath: String,userInfo: String) {
         if let imageName = imgKey.components(separatedBy: "/").last {
             let path = NSHomeDirectory() + "/Library/\(cachePath)_\(userInfo)/\(imageName)"
             if FileManager.default.fileExists(atPath: path) {

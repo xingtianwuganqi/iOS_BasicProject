@@ -7,20 +7,20 @@
 
 import UIKit
 import HBDNavigationBar
-class BaseNavigationController: HBDNavigationController, UIGestureRecognizerDelegate {
+public class BaseNavigationController: HBDNavigationController, UIGestureRecognizerDelegate {
     
-    override init(rootViewController: UIViewController) {
+    public override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
         
         UINavigationBar.appearance().tintColor = .black
         UINavigationBar.appearance().barTintColor = .white
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
         self.interactivePopGestureRecognizer?.delegate = self
@@ -42,7 +42,7 @@ class BaseNavigationController: HBDNavigationController, UIGestureRecognizerDele
 
 }
 extension BaseNavigationController {
-    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+    public override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         
         // 这个方法是在当前控制器执行push的时候，禁止手势右划返回，避免出现crash的现象
         if self.responds(to: #selector(getter: interactivePopGestureRecognizer)) == true {
@@ -73,22 +73,22 @@ extension BaseNavigationController {
         }
     }
     
-    override func popViewController(animated: Bool) -> UIViewController? {
+    public override func popViewController(animated: Bool) -> UIViewController? {
         super.popViewController(animated: animated)
     }
     
-    override func popToViewController(_ viewController: UIViewController, animated: Bool) -> [UIViewController]? {
+    public override func popToViewController(_ viewController: UIViewController, animated: Bool) -> [UIViewController]? {
         super.popToViewController(viewController, animated: animated)
     }
     
-    override func popToRootViewController(animated: Bool) -> [UIViewController]? {
+    public override func popToRootViewController(animated: Bool) -> [UIViewController]? {
         super.popToRootViewController(animated: animated)
     }
 }
 
 extension BaseNavigationController: UINavigationControllerDelegate {
     
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         // 这个方法是在当前控制器执行push的时候，禁止手势右划返回，避免出现crash的现象
         if self.responds(to: #selector(getter: interactivePopGestureRecognizer)) == true {
             self.interactivePopGestureRecognizer?.isEnabled = self.viewControllers.count > 1

@@ -8,18 +8,18 @@
 import Foundation
 import UIKit
 /// r g b a color
-func RGBA(_ red: CGFloat = 255.0, _ green: CGFloat = 255.0, _ blue: CGFloat = 255.0, _ alpha: CGFloat = 1) -> UIColor {
+public func RGBA(_ red: CGFloat = 255.0, _ green: CGFloat = 255.0, _ blue: CGFloat = 255.0, _ alpha: CGFloat = 1) -> UIColor {
     return UIColor(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: alpha)
 }
-func RGB(_ red: CGFloat = 255.0, _ green: CGFloat = 255.0, _ blue: CGFloat = 255.0) -> UIColor {
+public func RGB(_ red: CGFloat = 255.0, _ green: CGFloat = 255.0, _ blue: CGFloat = 255.0) -> UIColor {
     return UIColor(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: 1.0)
 }
-func rgb(_ red: CGFloat = 255.0, _ green: CGFloat = 255.0, _ blue: CGFloat = 255.0) -> UIColor {
+public func rgb(_ red: CGFloat = 255.0, _ green: CGFloat = 255.0, _ blue: CGFloat = 255.0) -> UIColor {
     return RGB(red, green, blue)
 }
 
 ///随机色
-func RandomColor() ->  UIColor{
+public func RandomColor() ->  UIColor{
     let r = Int(arc4random_uniform(255))
     let g = Int(arc4random_uniform(255))
     let b = Int(arc4random_uniform(255))
@@ -43,7 +43,7 @@ extension UIColor {
         }
     }
     
-    static func color(_ color: ColorEnum, alpha: CGFloat = 1.0) -> UIColor? {
+    public static func color(_ color: ColorEnum, alpha: CGFloat = 1.0) -> UIColor? {
         var formatted = color.rawValue.replacingOccurrences(of: "0x", with: "")
         formatted = formatted.replacingOccurrences(of: "#", with: "")
         if let hex = Int(formatted, radix: 16) {
@@ -58,7 +58,7 @@ extension UIColor {
     }
 }
 
-enum ColorEnum : String {
+public enum ColorEnum : String {
     case system = "#ffa500"  // 系统色，橘色
     case title = "#000000"   // 标题色，纯黑
     case content = "#333333"  // 内容
@@ -73,7 +73,7 @@ enum ColorEnum : String {
     case remindColor = "#F6831F"
 }
 
-enum FontSize: CGFloat {
+public enum FontSize: CGFloat {
     case big = 20
     case title = 17
     case content = 16
@@ -82,7 +82,7 @@ enum FontSize: CGFloat {
     case small = 10
 }
 
-enum FontName: String {
+public enum FontName: String {
     case regular = "PingFangSC-Regular"
     case medium  = "PingFangSC-Medium"
     case bold    = "PingFangSC-Semibold"
@@ -100,7 +100,7 @@ extension ET where Base: UIFont {
      */
     
     
-    static func font(_ name: FontName = .regular,size: CGFloat) -> UIFont {
+    public static func font(_ name: FontName = .regular,size: CGFloat) -> UIFont {
         if let font = UIFont.init(name: name.rawValue, size: size) {
             return font
         }else{
@@ -108,7 +108,7 @@ extension ET where Base: UIFont {
         }
     }
     
-    static func fontSize(_ name: FontName = .regular,_ size: FontSize = .content) -> UIFont {
+    public static func fontSize(_ name: FontName = .regular,_ size: FontSize = .content) -> UIFont {
         if let font = UIFont.init(name: name.rawValue, size: size.rawValue) {
             return font
         }else{
@@ -120,7 +120,7 @@ extension ET where Base: UIFont {
 
 
 extension Float {
-    func intValue() -> String  {
+    public func intValue() -> String  {
         let value = String(format: "%.2f", self)
         let current = (Float(value) ?? 0.0) * 100
         return "\(current)"
@@ -128,7 +128,7 @@ extension Float {
 }
 
 extension Int {
-    var wFormatted: String {
+    public var wFormatted: String {
         if self > 10000 {
             let value = Float(self) / 10000
             return String(format: "%.1fw", value)
@@ -137,7 +137,7 @@ extension Int {
         }
     }
     
-    var et_unread: String {
+    public var et_unread: String {
         if self > 99 {
             return "99+"
         }else if self > 0 {
