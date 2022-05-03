@@ -1,0 +1,65 @@
+PODS:
+  - Alamofire (5.5.0)
+  - DZNEmptyDataSet (1.8.1)
+  - ESTabBarController-swift (2.8.0)
+  - HandyJSON (5.0.2)
+  - HBDNavigationBar (1.9.4)
+  - MBProgressHUD (1.2.0)
+  - MJRefresh (3.7.5)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (15.0.0):
+    - Moya/Core
+    - RxSwift (~> 6.0)
+  - ReachabilitySwift (5.0.0)
+  - RxSwift (6.5.0)
+  - SDWebImage (5.12.3):
+    - SDWebImage/Core (= 5.12.3)
+  - SDWebImage/Core (5.12.3)
+  - URLNavigator (2.3.0)
+
+DEPENDENCIES:
+  - DZNEmptyDataSet
+  - ESTabBarController-swift
+  - HandyJSON
+  - HBDNavigationBar (~> 1.9.4)
+  - MBProgressHUD
+  - MJRefresh
+  - Moya/RxSwift
+  - ReachabilitySwift
+  - RxSwift
+  - SDWebImage
+  - URLNavigator
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - DZNEmptyDataSet
+    - ESTabBarController-swift
+    - HandyJSON
+    - HBDNavigationBar
+    - MBProgressHUD
+    - MJRefresh
+    - Moya
+    - ReachabilitySwift
+    - RxSwift
+    - SDWebImage
+    - URLNavigator
+
+SPEC CHECKSUMS:
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  ESTabBarController-swift: 05593a6ad64700b03c0eb60ff625916370aa4136
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  HBDNavigationBar: 6f2f5699c0d9f3e6087466c037b361d6f337ea22
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SDWebImage: 53179a2dba77246efa8a9b85f5c5b21f8f43e38f
+  URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
+
+PODFILE CHECKSUM: 13df26c4c04a743df2c9394f3a4f237b683e1e43
+
+COCOAPODS: 1.11.3
