@@ -36,6 +36,8 @@
 		C47335DE282184170070FF9E /* NavigatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47335DD282184170070FF9E /* NavigatorService.swift */; };
 		C4733601282AAC2D0070FF9E /* WebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4733600282AAC2D0070FF9E /* WebPageViewController.swift */; };
 		C4A5CB15282D3DFC0043D40F /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5CB14282D3DFC0043D40F /* AppConfiguration.swift */; };
+		C4A5CB18282D5E0B0043D40F /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5CB16282D5E0B0043D40F /* LoginModel.swift */; };
+		C4A5CB19282D5E0B0043D40F /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5CB17282D5E0B0043D40F /* UserManager.swift */; };
 		C4D0C12F282C04EA00AD00B7 /* PhoneType.h in Headers */ = {isa = PBXBuildFile; fileRef = C4D0C12D282C04EA00AD00B7 /* PhoneType.h */; };
 		C4D0C130282C04EA00AD00B7 /* PhoneType.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D0C12E282C04EA00AD00B7 /* PhoneType.m */; };
 		EDB6C512C950B1C0D23FA903 /* Pods_BasicProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF86D5EAD68C470D2CCF2B53 /* Pods_BasicProject.framework */; };
@@ -74,6 +76,8 @@
 		C4733600282AAC2D0070FF9E /* WebPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebPageViewController.swift; sourceTree = "<group>"; };
 		C4733602282AC9D20070FF9E /* Basic_bridge_hear.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Basic_bridge_hear.h; sourceTree = "<group>"; };
 		C4A5CB14282D3DFC0043D40F /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		C4A5CB16282D5E0B0043D40F /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		C4A5CB17282D5E0B0043D40F /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		C4D0C12D282C04EA00AD00B7 /* PhoneType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneType.h; sourceTree = "<group>"; };
 		C4D0C12E282C04EA00AD00B7 /* PhoneType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneType.m; sourceTree = "<group>"; };
 		DF86D5EAD68C470D2CCF2B53 /* Pods_BasicProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasicProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,8 +162,8 @@
 		C47335B3282119840070FF9E /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				C4A5CB14282D3DFC0043D40F /* AppConfiguration.swift */,
 				C47335B6282119840070FF9E /* Tool.swift */,
+				C4A5CB14282D3DFC0043D40F /* AppConfiguration.swift */,
 				C47335B7282119840070FF9E /* NetWorkMonitoring.swift */,
 				C47335B8282119840070FF9E /* NetWorking.swift */,
 				C47335B9282119840070FF9E /* Common.swift */,
@@ -170,6 +174,8 @@
 		C47335C428212A7E0070FF9E /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				C4A5CB16282D5E0B0043D40F /* LoginModel.swift */,
+				C4A5CB17282D5E0B0043D40F /* UserManager.swift */,
 				C47335D628212B220070FF9E /* BaseViewController.swift */,
 				C47335D528212B220070FF9E /* BaseNavigationController.swift */,
 				C47335D728212B220070FF9E /* TabbarItemContentView.swift */,
@@ -328,11 +334,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C47335AA282119660070FF9E /* ViewControllerExtension.swift in Sources */,
+				C4A5CB18282D5E0B0043D40F /* LoginModel.swift in Sources */,
 				C47335D228212A7E0070FF9E /* BaseRefresh.swift in Sources */,
 				C47335B2282119660070FF9E /* DateExtension.swift in Sources */,
 				C4733601282AAC2D0070FF9E /* WebPageViewController.swift in Sources */,
 				C47335BF282119840070FF9E /* NetWorkMonitoring.swift in Sources */,
 				C47335CD28212A7E0070FF9E /* ContentPageViewController.swift in Sources */,
+				C4A5CB19282D5E0B0043D40F /* UserManager.swift in Sources */,
 				C47335DE282184170070FF9E /* NavigatorService.swift in Sources */,
 				C4D0C130282C04EA00AD00B7 /* PhoneType.m in Sources */,
 				C47335D328212A7E0070FF9E /* BaseProtocol.swift in Sources */,

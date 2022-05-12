@@ -15,3 +15,7 @@ public protocol NavigatorServiceType {
 public protocol NavigatorItemType {
 
 }
+
+public enum BaseLoginNaviItem: NavigatorItemType {
+    case login
+}

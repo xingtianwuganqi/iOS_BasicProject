@@ -129,7 +129,7 @@ public final class NetWorking<T: BaseTargetType> : MoyaProvider<T>{
             if let baseModel = err.response?.mapModel(EmptyModel.self),baseModel.code == 401 {
                 DispatchQueue.main.async {
                     MBProgressHUD.xy_show("认证有误,请重新登录")
-                    AppHelper.shared.loginStatusError?()
+                    UserManager.shared.loginStatusError?()
                 }
             }
             printLog("☹️☹️☹️ Error: \(target.baseURL)\(target.path) ---- \(err.response?.statusCode ?? 0)")

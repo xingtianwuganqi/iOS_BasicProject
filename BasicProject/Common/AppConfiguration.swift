@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import BasicProject
 
 public let IMGURL      = "http://img.rxswift.cn/"
 public let IMGMARK     = "?imageView2/0/q/70|watermark/2/text/QOecn-WRveWkqeWWtQ==/font/5a6L5L2T/fontsize/240/fill/IzY2NjY2Ng==/dissolve/75/gravity/SouthEast/dx/10/dy/10"
@@ -27,4 +26,18 @@ public enum UserProtocal: String {
     case instruction = "/api/instruction/"
     case prevention = "/api/prevention/"
 }
+
+public struct APPCommonParam {
+    
+    public static func apiBasicParameters() -> [String:Any] {
+        [
+            "appType": "ios",
+            "token":UserManager.shared.token,
+            "appVersion": GlobalConstants.AppVersion,
+            "iOSVersion": GlobalConstants.iOSVersion,
+            "iOSBuildVersion": GlobalConstants.AppBuildVersion
+        ]
+    }
+}
+
 
