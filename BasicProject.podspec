@@ -26,8 +26,7 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "10.0"
 
   spec.source       = { :git => "https://github.com/xingtianwuganqi/iOS_BasicProject.git", :tag => "#{spec.version}" }
-
-  spec.source_files  = "BasicProject/Base/*.swift", "BasicProject/Common/*.swift", "BasicProject/Extension/*.swift"
+  spec.source_files = "BasicProject/Thrpart/*.{h,m}","BasicProject/Base/*.swift", "BasicProject/Common/*.swift", "BasicProject/Extension/*.swift"
   spec.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
 
   spec.frameworks   = ["Foundation","UIKit","Photos"]
@@ -36,12 +35,15 @@ Pod::Spec.new do |spec|
   spec.ios.dependency 'SDWebImage'
   spec.ios.dependency 'ReachabilitySwift'
   spec.ios.dependency 'RxSwift'
+  spec.ios.dependency 'RxCocoa'
   spec.ios.dependency 'Moya/RxSwift'
   spec.ios.dependency 'HandyJSON'
   spec.ios.dependency 'ESTabBarController-swift'
   spec.ios.dependency 'HBDNavigationBar'
   spec.ios.dependency 'MJRefresh'
   spec.ios.dependency 'URLNavigator'
+  spec.ios.dependency 'SnapKit'
   spec.ios.dependency 'DZNEmptyDataSet'
+  spec.ios.dependency 'ReactorKit'
 
 end

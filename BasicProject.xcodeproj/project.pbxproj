@@ -34,6 +34,10 @@
 		C47335D928212B220070FF9E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47335D628212B220070FF9E /* BaseViewController.swift */; };
 		C47335DA28212B220070FF9E /* TabbarItemContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47335D728212B220070FF9E /* TabbarItemContentView.swift */; };
 		C47335DE282184170070FF9E /* NavigatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47335DD282184170070FF9E /* NavigatorService.swift */; };
+		C4733601282AAC2D0070FF9E /* WebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4733600282AAC2D0070FF9E /* WebPageViewController.swift */; };
+		C4A5CB15282D3DFC0043D40F /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5CB14282D3DFC0043D40F /* AppConfiguration.swift */; };
+		C4D0C12F282C04EA00AD00B7 /* PhoneType.h in Headers */ = {isa = PBXBuildFile; fileRef = C4D0C12D282C04EA00AD00B7 /* PhoneType.h */; };
+		C4D0C130282C04EA00AD00B7 /* PhoneType.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D0C12E282C04EA00AD00B7 /* PhoneType.m */; };
 		EDB6C512C950B1C0D23FA903 /* Pods_BasicProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF86D5EAD68C470D2CCF2B53 /* Pods_BasicProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +71,11 @@
 		C47335D628212B220070FF9E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C47335D728212B220070FF9E /* TabbarItemContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarItemContentView.swift; sourceTree = "<group>"; };
 		C47335DD282184170070FF9E /* NavigatorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigatorService.swift; sourceTree = "<group>"; };
+		C4733600282AAC2D0070FF9E /* WebPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebPageViewController.swift; sourceTree = "<group>"; };
+		C4733602282AC9D20070FF9E /* Basic_bridge_hear.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Basic_bridge_hear.h; sourceTree = "<group>"; };
+		C4A5CB14282D3DFC0043D40F /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		C4D0C12D282C04EA00AD00B7 /* PhoneType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneType.h; sourceTree = "<group>"; };
+		C4D0C12E282C04EA00AD00B7 /* PhoneType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneType.m; sourceTree = "<group>"; };
 		DF86D5EAD68C470D2CCF2B53 /* Pods_BasicProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasicProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8567D94E9FF74269291134B /* Pods-BasicProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicProject.debug.xcconfig"; path = "Target Support Files/Pods-BasicProject/Pods-BasicProject.debug.xcconfig"; sourceTree = "<group>"; };
 		ECB3D1ECCFE15A4FB92CA924 /* Pods-BasicProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicProject.release.xcconfig"; path = "Target Support Files/Pods-BasicProject/Pods-BasicProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -114,10 +123,12 @@
 		C473358A282118CB0070FF9E /* BasicProject */ = {
 			isa = PBXGroup;
 			children = (
+				C4733604282BA66D0070FF9E /* Thrpart */,
 				C47335C428212A7E0070FF9E /* Base */,
 				C47335B3282119840070FF9E /* Common */,
 				C47335A0282119660070FF9E /* Extension */,
 				C473358B282118CB0070FF9E /* AppDelegate.swift */,
+				C4733602282AC9D20070FF9E /* Basic_bridge_hear.h */,
 				C473358F282118CB0070FF9E /* ViewController.swift */,
 				C4733591282118CB0070FF9E /* Main.storyboard */,
 				C4733594282118CC0070FF9E /* Assets.xcassets */,
@@ -131,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				C47335A5282119660070FF9E /* ETExtensionCompatible.swift */,
+				C47335B4282119840070FF9E /* WebImageCache.swift */,
 				C47335A1282119660070FF9E /* ViewControllerExtension.swift */,
 				C47335A2282119660070FF9E /* MBProgressHUD+XYExtension.swift */,
 				C47335A3282119660070FF9E /* ScrollViewExtension.swift */,
@@ -146,7 +158,7 @@
 		C47335B3282119840070FF9E /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				C47335B4282119840070FF9E /* WebImageCache.swift */,
+				C4A5CB14282D3DFC0043D40F /* AppConfiguration.swift */,
 				C47335B6282119840070FF9E /* Tool.swift */,
 				C47335B7282119840070FF9E /* NetWorkMonitoring.swift */,
 				C47335B8282119840070FF9E /* NetWorking.swift */,
@@ -166,8 +178,18 @@
 				C47335CA28212A7E0070FF9E /* BaseRefresh.swift */,
 				C47335CB28212A7E0070FF9E /* BaseProtocol.swift */,
 				C47335DD282184170070FF9E /* NavigatorService.swift */,
+				C4733600282AAC2D0070FF9E /* WebPageViewController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		C4733604282BA66D0070FF9E /* Thrpart */ = {
+			isa = PBXGroup;
+			children = (
+				C4D0C12D282C04EA00AD00B7 /* PhoneType.h */,
+				C4D0C12E282C04EA00AD00B7 /* PhoneType.m */,
+			);
+			path = Thrpart;
 			sourceTree = "<group>";
 		};
 		ED2A04DBA9632BE110EE95FD /* Frameworks */ = {
@@ -180,12 +202,24 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		C4733608282BAAAC0070FF9E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4D0C12F282C04EA00AD00B7 /* PhoneType.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		C4733587282118CB0070FF9E /* BasicProject */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C473359C282118CC0070FF9E /* Build configuration list for PBXNativeTarget "BasicProject" */;
 			buildPhases = (
 				F2734AE44524C8E80215D203 /* [CP] Check Pods Manifest.lock */,
+				C4733608282BAAAC0070FF9E /* Headers */,
 				C4733584282118CB0070FF9E /* Sources */,
 				C4733585282118CB0070FF9E /* Frameworks */,
 				C4733586282118CB0070FF9E /* Resources */,
@@ -296,10 +330,13 @@
 				C47335AA282119660070FF9E /* ViewControllerExtension.swift in Sources */,
 				C47335D228212A7E0070FF9E /* BaseRefresh.swift in Sources */,
 				C47335B2282119660070FF9E /* DateExtension.swift in Sources */,
+				C4733601282AAC2D0070FF9E /* WebPageViewController.swift in Sources */,
 				C47335BF282119840070FF9E /* NetWorkMonitoring.swift in Sources */,
 				C47335CD28212A7E0070FF9E /* ContentPageViewController.swift in Sources */,
 				C47335DE282184170070FF9E /* NavigatorService.swift in Sources */,
+				C4D0C130282C04EA00AD00B7 /* PhoneType.m in Sources */,
 				C47335D328212A7E0070FF9E /* BaseProtocol.swift in Sources */,
+				C4A5CB15282D3DFC0043D40F /* AppConfiguration.swift in Sources */,
 				C47335C1282119840070FF9E /* Common.swift in Sources */,
 				C47335D828212B220070FF9E /* BaseNavigationController.swift in Sources */,
 				C47335BE282119840070FF9E /* Tool.swift in Sources */,
@@ -483,6 +520,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jingjun.BasicProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/BasicProject/Basic_bridge_hear.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -513,6 +551,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jingjun.BasicProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/BasicProject/Basic_bridge_hear.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

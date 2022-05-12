@@ -15,7 +15,12 @@ public final class AppHelper {
     
     public lazy var unreadNum = PublishSubject<Int>()
     public lazy var versionNum: Int = 0
+    
+    // 网络请求登录错误
     public var loginStatusError: (() -> Void)?
+    
+    // 登录成功后的回调
+    public var loginSuccessCallBack: ((Any) -> Void)?
     
     public static func currentTabBarController() -> UITabBarController? {
         

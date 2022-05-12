@@ -8,6 +8,7 @@ target 'BasicProject' do
   pod 'SDWebImage'
   pod 'ReachabilitySwift'
   pod 'RxSwift'
+  pod 'RxCocoa'
   pod 'Moya/RxSwift'
   pod 'HandyJSON'
   pod 'ESTabBarController-swift'
@@ -15,5 +16,6 @@ target 'BasicProject' do
   pod 'MJRefresh'
   pod 'URLNavigator'
   pod 'DZNEmptyDataSet'
-
+  pod 'SnapKit'
+  pod 'ReactorKit'
 end

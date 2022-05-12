@@ -22,12 +22,5 @@ extension URL {
 }
 
 extension Date {
-    ///是否为今年
-    public func isThisYear() -> Bool {
-        let calendar = Calendar.current
-        let nowCmps = calendar.dateComponents([.year], from: Date())
-        let selfCmps = calendar.dateComponents([.year], from: self)
-        let result = nowCmps.year == selfCmps.year
-        return result
-    }
+    
 }
