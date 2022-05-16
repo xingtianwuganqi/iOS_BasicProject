@@ -9,9 +9,11 @@ import Foundation
 import RxSwift
 public final class AppHelper {
     public static let shared = AppHelper.init()
-    public init() {
+    private init() {
         
     }
+    
+    public var url_config: [String: String] = [:]
     
     public static func currentTabBarController() -> UITabBarController? {
         
