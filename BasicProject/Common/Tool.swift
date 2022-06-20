@@ -285,6 +285,7 @@ public class Tool: NSObject  {
             }
             if count == 0 {
                 timer.cancel()
+                self.timeObserve = nil
             }
         }
         timer.resume()
