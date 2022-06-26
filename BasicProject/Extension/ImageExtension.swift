@@ -30,6 +30,7 @@ public enum ImageType {
     case thumbSeven
     case thumbFour
     case thumbnail
+    case thumbThree
 }
 
 extension UIImageView: ETExtensionCompatible {

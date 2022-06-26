@@ -9,9 +9,10 @@ import Foundation
 
 public let IMGURL      = "http://img.rxswift.cn/"
 public let IMGMARK     = "?imageView2/0/q/70|watermark/2/text/QOecn-WRveWkqeWWtQ==/font/5a6L5L2T/fontsize/240/fill/IzY2NjY2Ng==/dissolve/75/gravity/SouthEast/dx/10/dy/10"
-public let IMGTHUMBNAIL = "?imageView2/0/q/30"
+public let IMGTHUMBNAIL = "?imageView2/0/q/20"
 public let IMGTHUMBFOUR = "?imageView2/0/q/40"
-public let IMGTHUMBSEVEN = "?imageView2/0/q/75"
+public let IMGTHUMBSEVEN = "?imageView2/0/q/70"
+public let IMGTHUMBTHREE = "?imageView2/0/q/30"
 public let RescueReleased = "RescueReleased"
 public let ShowReleased   = "ShowReleased"
 public let SensitiveWords = ["押金","定金","运费"]
