@@ -43,7 +43,7 @@ public struct APPCommonParam {
 
 public enum AppType: String {
     case LoveCat = "真命天喵"
-    case None = "未指定"
+    case None = ""
 }
 
 /// 全局的App标识 只允许设置一次
