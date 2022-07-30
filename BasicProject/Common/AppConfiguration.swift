@@ -41,4 +41,21 @@ public struct APPCommonParam {
     }
 }
 
+public enum AppType: String {
+    case LoveCat = "真命天喵"
+    case None = "未指定"
+}
 
+/// 全局的App标识 只允许设置一次
+public private(set) var AppIdentifier: AppType = .None
+
+/// 设置App全局标识符 只允许设置一次
+/// - Parameter value: true 设置成功 false设置失败 可以丢弃返回值
+@discardableResult
+public func setAppIdentifier(_ value: AppType)-> Bool{
+    if AppIdentifier == .None && value != .None {
+        AppIdentifier = value
+        return true
+    }
+    return false
+}
