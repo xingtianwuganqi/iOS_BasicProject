@@ -9,6 +9,7 @@ import Foundation
 
 public let IMGURL      = "http://img.rxswift.cn/"
 public let IMGMARK     = "?imageView2/0/q/70|watermark/2/text/QOecn-WRveWkqeWWtQ==/font/5a6L5L2T/fontsize/240/fill/IzY2NjY2Ng==/dissolve/75/gravity/SouthEast/dx/10/dy/10"
+public let IMGTHUMBHEAD = "?imageView2/0/q/10"
 public let IMGTHUMBNAIL = "?imageView2/0/q/20"
 public let IMGTHUMBFOUR = "?imageView2/0/q/40"
 public let IMGTHUMBSEVEN = "?imageView2/0/q/70"
