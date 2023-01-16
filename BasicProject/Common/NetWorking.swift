@@ -123,7 +123,7 @@ public final class NetWorking<T: BaseTargetType> : MoyaProvider<T>{
             .filterSuccessfulStatusCodes()
             .do(onSuccess: { (response) in
                 printLog("🥳🥳🥳 Success: \(response.statusCode)")
-                printLog(try response.mapJSON())
+//                printLog(try response.mapJSON())
         }, onError: { (error) in
             let err = error as! MoyaError
             if let baseModel = err.response?.mapModel(EmptyModel.self),baseModel.code == 401 {
