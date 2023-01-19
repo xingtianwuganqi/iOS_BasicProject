@@ -115,18 +115,24 @@ extension ET where Base: ExpressibleByStringLiteral {
                 hideText += "*"
             }
             return String(text.prefix(1)) + hideText + String(text.suffix(1))
-        }else if text.count > 6 && text.count < 11 {
-            var hideText = ""
-            for _ in 0..<(text.count - 4) {
-                hideText += "*"
-            }
-            return String(text.prefix(2)) + hideText + String(text.suffix(2))
-        }else{
+        }else if text.count > 5 && text.count < 8 {
             var hideText = ""
             for _ in 0..<(text.count - 6) {
                 hideText += "*"
             }
             return String(text.prefix(3)) + hideText + String(text.suffix(3))
+        }else if text.count > 7 && text.count < 11 {
+            var hideText = ""
+            for _ in 0..<(text.count - 6) {
+                hideText += "*"
+            }
+            return String(text.prefix(3)) + hideText + String(text.suffix(3))
+        }else{
+            var hideText = ""
+            for _ in 0..<(text.count - 8) {
+                hideText += "*"
+            }
+            return String(text.prefix(4)) + hideText + String(text.suffix(4))
         }
     }
 }
