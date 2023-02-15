@@ -52,10 +52,10 @@ extension ET where Base: UIImageView {
         UIGraphicsEndImageContext();
         return img
     }
-    
-    
+}
+extension UIImage {
     /// 图片压缩
-    public func compressImage() -> Data {
+    public func etCompressImage() -> Data {
         let imageSize = self.jpegData(compressionQuality: 1.0)!.count/1024
         var myImage = self
         if imageSize < 300 {
@@ -83,7 +83,7 @@ extension ET where Base: UIImageView {
                     myImage = img
                 }
                 UIGraphicsEndImageContext()
-                SDJGLog("width:\(myImage.size.width) height:\(myImage.size.height)")
+                printLog("width:\(myImage.size.width) height:\(myImage.size.height)")
                 if myImage.jpegData(compressionQuality: 1.0)!.count/1024 >= 300{
                     // 尺寸压缩后还大于300k
                     for index in 1...7{
@@ -109,7 +109,7 @@ extension ET where Base: UIImageView {
     /// 图片压缩（文件大小）
     /// - Parameter size: 最大文件大小
     /// - Parameter unit: 大小单位
-    public func compressImageWithFileSize(size: Int, unit: String = "b") -> UIImage {
+    public func etCompressImageWithFileSize(size: Int, unit: String = "b") -> UIImage {
         var maxSize: Int = 0
         switch unit {
         case "b", "B":
@@ -137,7 +137,7 @@ extension ET where Base: UIImageView {
         if ratio < 0.05 {
             var sizeRatio: Float = 0.95
             while imageData.count >= maxSize && sizeRatio >= 0.5 { //缩
-                imageData = UIImage(data: imageData)?.extCompressImage() ?? Data()
+                imageData = UIImage(data: imageData)?.etCompressImage() ?? Data()
                 sizeRatio -= 0.05
             }
         }
@@ -145,7 +145,7 @@ extension ET where Base: UIImageView {
     }
     
     /// 合成两张图片
-    public func compoundImage(otherImage: UIImage)-> UIImage{
+    public func etCompoundImage(otherImage: UIImage)-> UIImage{
         let size = self.size
         let otherBounds = size.width > size.height ? size.height/2 : size.width/2
         UIGraphicsBeginImageContext(size)
