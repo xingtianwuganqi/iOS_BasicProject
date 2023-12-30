@@ -19,11 +19,11 @@ Pod::Spec.new do |spec|
   spec.homepage     = "https://github.com/xingtianwuganqi/iOS_BasicProject.git"
 
   spec.license      = { :type => "MIT", :file => "LICENSE" }
-  spec.swift_versions = ['5.0', '5.1', '5.2', '5.3']
+  spec.swift_versions = ['5.8', '5.9']
   
   spec.author       = { "jingjun" => "rxswift@126.com" }
   
-  spec.platform     = :ios, "11.0"
+  spec.platform     = :ios, "13.0"
 
   spec.source       = { :git => "https://github.com/xingtianwuganqi/iOS_BasicProject.git", :tag => "#{spec.version}" }
   spec.source_files = "BasicProject/Thrpart/*.{h,m}","BasicProject/Base/*.swift", "BasicProject/Common/*.swift", "BasicProject/Extension/*.swift"
