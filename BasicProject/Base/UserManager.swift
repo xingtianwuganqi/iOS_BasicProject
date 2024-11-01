@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import HandyJSON
+import SmartCodable
 import RxSwift
 
 final public class UserManager {
@@ -63,7 +63,7 @@ final public class UserManager {
             guard let infoStr = UserDefaults.standard.value(forKey: userInfoKey) as? String,infoStr.count > 0 else{
                 return
             }
-            let model = JSONDeserializer<UserInfoModel>.deserializeFrom(json: infoStr)
+            let model = UserInfoModel.deserialize(from: infoStr)
             self.userInfo = model
             if let info = model {
                 self.userSubject.onNext(info)

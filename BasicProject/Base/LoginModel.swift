@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import HandyJSON
+import SmartCodable
 
-public struct UserInfoModel: HandyJSON {
+public struct UserInfoModel: SmartCodable {
     public init(){}
     public var username: String?
     public var avator: String?
