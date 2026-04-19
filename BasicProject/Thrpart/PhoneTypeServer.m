@@ -1,14 +1,14 @@
 //
-//  PhoneType.m
+//  PhoneTypeServer.m
 //  LoveCat
 //
 //  Created by jingjun on 2021/1/10.
 //
 
-#import "PhoneType.h"
+#import "PhoneTypeServer.h"
 #import <sys/utsname.h>
 
-@implementation PhoneType
+@implementation PhoneTypeServer
 
 + (NSString *)getDeviceModel{
     struct utsname

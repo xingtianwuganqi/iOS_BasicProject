@@ -38,8 +38,6 @@ Pod::Spec.new do |spec|
   spec.ios.dependency 'RxCocoa'
   spec.ios.dependency 'Moya/RxSwift'
   spec.ios.dependency 'SmartCodable'
-  spec.ios.dependency 'ESTabBarController-swift'
-  spec.ios.dependency 'HBDNavigationBar'
   spec.ios.dependency 'MJRefresh'
   spec.ios.dependency 'URLNavigator'
   spec.ios.dependency 'SnapKit'

@@ -8,7 +8,7 @@
 import Foundation
 import SmartCodable
 
-public struct UserInfoModel: SmartCodable {
+public struct UserInfoModel: SmartCodableX {
     public init(){}
     public var username: String?
     public var avator: String?

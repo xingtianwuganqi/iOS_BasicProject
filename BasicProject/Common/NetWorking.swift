@@ -14,11 +14,11 @@ import MBProgressHUD
 
 public var baseUrlConfig: String = ""
 
-public struct EmptyModel: SmartCodable {
+public struct EmptyModel: SmartCodableX {
     public init() {}
 }
 
-public struct BaseModel<T: SmartCodable>: SmartCodable {
+public struct BaseModel<T: SmartCodableX>: SmartCodableX {
     
     public typealias ModelType = T
     
@@ -125,7 +125,7 @@ public final class NetWorking<T: BaseTargetType> : MoyaProvider<T>{
             .filterSuccessfulStatusCodes()
             .do(onSuccess: { (response) in
                 printLog("🥳🥳🥳 Success: \(response.statusCode)")
-//                printLog(try response.mapJSON())
+                printLog(try response.mapJSON())
         }, onError: { (error) in
             let err = error as! MoyaError
             if let baseModel = err.response?.mapModel(EmptyModel.self),baseModel.code == 401 {
@@ -141,7 +141,7 @@ public final class NetWorking<T: BaseTargetType> : MoyaProvider<T>{
 
 
 extension ObservableType where Element == Response {
-    public func mapModel<T: SmartCodable>(_ type: T.Type) -> Observable<BaseModel<T>?> {
+    public func mapModel<T: SmartCodableX>(_ type: T.Type) -> Observable<BaseModel<T>?> {
         return flatMap { response -> Observable<BaseModel<T>?> in
             return Observable.just(response.mapModel(T.self))
         }
@@ -149,14 +149,14 @@ extension ObservableType where Element == Response {
 }
 
 extension Response {
-    public func mapModel<T: SmartCodable>(_ type: T.Type) -> BaseModel<T>? {
+    public func mapModel<T: SmartCodableX>(_ type: T.Type) -> BaseModel<T>? {
         let jsonString = String.init(data: data, encoding: .utf8)
         return BaseModel<T>.deserialize(from: jsonString)
     }
 }
 
 extension Single where Element == Any {
-    public func mapModel<T: SmartCodable>(_ type: T.Type) -> Single<BaseModel<T>?> {
+    public func mapModel<T: SmartCodableX>(_ type: T.Type) -> Single<BaseModel<T>?> {
         let obj = self.asObservable().flatMap { (data) -> Observable<BaseModel<T>?> in
             let json = data as! [String: Any]
             let resp = BaseModel<T>.deserialize(from: json)
@@ -167,7 +167,7 @@ extension Single where Element == Any {
 }
 
 extension Single where Element == Response {
-    public func mapData<T: SmartCodable>(_ type: T.Type) -> Observable<BaseModel<T>?> {
+    public func mapData<T: SmartCodableX>(_ type: T.Type) -> Observable<BaseModel<T>?> {
         return self.asObservable().flatMap { (response) -> Observable<BaseModel<T>?> in
             return Observable.just(response.mapModel(T.self))
         }
