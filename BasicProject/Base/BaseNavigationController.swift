@@ -56,7 +56,7 @@ extension BaseNavigationController {
             viewController.hidesBottomBarWhenPushed = true
             if viewController.navigationItem.leftBarButtonItem == nil {
                 let backNavBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40.0))
-                backNavBtn.contentHorizontalAlignment = .left
+                backNavBtn.contentHorizontalAlignment = .center
                 backNavBtn.setImage(UIImage(named: "icon_a_back"), for: .normal)
                 backNavBtn.setImage(UIImage(named: "icon_a_back"), for: .highlighted)
                 backNavBtn.addTarget(viewController, action: #selector(gobackByPopViewController), for: .touchUpInside)
