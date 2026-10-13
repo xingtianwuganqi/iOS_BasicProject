@@ -120,12 +120,12 @@ public final class NetWorking<T: BaseTargetType> : MoyaProvider<T>{
         function: StaticString = #function,
         line: UInt = #line
         ) -> Single<Response> {
-        printLog("😀😀😀 beginRequest: \(target.baseURL)\(target.path) ---- \(target.method) --- \(target.parameters)")
+        printLog("beginRequest: \(target.method) \(target.path)")
         return self.rx.request(target)
             .filterSuccessfulStatusCodes()
             .do(onSuccess: { (response) in
                 printLog("🥳🥳🥳 Success: \(response.statusCode)")
-                printLog(try response.mapJSON())
+                // Response bodies may contain tokens and private user data.
         }, onError: { (error) in
             let err = error as! MoyaError
             if let baseModel = err.response?.mapModel(EmptyModel.self),baseModel.code == 401 {
