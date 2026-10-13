@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Security
 import SmartCodable
 import RxSwift
 
@@ -52,26 +53,42 @@ final public class UserManager {
         }
     }
     
+    /// Non-sensitive profile lives in defaults; all login methods share Keychain.
     public func upLoadUserInfo(_ info: UserInfoModel? = nil) {
-        if let userInfo = info {
-            self.userInfo = userInfo
-            if let json = self.userInfo?.toJSONString() {
+        if var model = info {
+            if let token = model.token, !token.isEmpty {
+                guard SessionKeychain.write(token) else { return }
+            } else {
+                model.token = SessionKeychain.read()
+            }
+            self.userInfo = model
+            var cached = model
+            cached.token = nil
+            if let json = cached.toJSONString() {
                 UserDefaults.standard.setValue(json, forKey: userInfoKey)
             }
-            self.userSubject.onNext(userInfo)
-        }else{
-            guard let infoStr = UserDefaults.standard.value(forKey: userInfoKey) as? String,infoStr.count > 0 else{
-                return
+            self.userSubject.onNext(model)
+        } else if let json = UserDefaults.standard.string(forKey: userInfoKey),
+                  var model = UserInfoModel.deserialize(from: json) {
+            // Migrate older plaintext caches once, and fail closed if storage fails.
+            if let old = model.token, !old.isEmpty {
+                guard SessionKeychain.write(old) else {
+                    UserDefaults.standard.removeObject(forKey: userInfoKey)
+                    return
+                }
             }
-            let model = UserInfoModel.deserialize(from: infoStr)
-            self.userInfo = model
-            if let info = model {
-                self.userSubject.onNext(info)
-            }
+            model.token = SessionKeychain.read()
+            guard model.token?.isEmpty == false else { return }
+            upLoadUserInfo(model)
         }
     }
-    
-    
+
+    public func clearSession() {
+        SessionKeychain.clear()
+        UserDefaults.standard.removeObject(forKey: userInfoKey)
+        userInfo = nil
+    }
+
     /// 必须要登陆以后才能做的事情
     public func lazyAuthToDoThings(_ block: @escaping (() -> Void)) {
         if UserManager.shared.isLogin == false {
@@ -85,3 +102,31 @@ final public class UserManager {
 }
 
 
+
+private enum SessionKeychain {
+    static var query: [String: Any] {
+        [kSecClass as String: kSecClassGenericPassword,
+         kSecAttrService as String: (Bundle.main.bundleIdentifier ?? "LoveCat") + ".session",
+         kSecAttrAccount as String: "system-token"]
+    }
+    static func read() -> String? {
+        var values = query
+        values[kSecReturnData as String] = true
+        values[kSecMatchLimit as String] = kSecMatchLimitOne
+        var result: CFTypeRef?
+        guard SecItemCopyMatching(values as CFDictionary, &result) == errSecSuccess,
+              let data = result as? Data else { return nil }
+        return String(data: data, encoding: .utf8)
+    }
+    static func write(_ value: String) -> Bool {
+        let data = Data(value.utf8)
+        let status = SecItemUpdate(query as CFDictionary, [kSecValueData as String: data] as CFDictionary)
+        if status == errSecSuccess { return true }
+        guard status == errSecItemNotFound else { return false }
+        var values = query
+        values[kSecValueData as String] = data
+        values[kSecAttrAccessible as String] = kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
+        return SecItemAdd(values as CFDictionary, nil) == errSecSuccess
+    }
+    static func clear() { SecItemDelete(query as CFDictionary) }
+}
