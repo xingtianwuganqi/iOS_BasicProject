@@ -174,11 +174,16 @@ extension BaseViewController: DZNEmptyDataSetSource,DZNEmptyDataSetDelegate{
             if (scrollView.mj_header?.isRefreshing ?? false) {
                 return nil
             }else{
-                let indicatorView = UIActivityIndicatorView(style: .gray)
+                let indicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
                 DispatchQueue.main.async {
                     indicatorView.startAnimating()
                 }
-                return indicatorView
+                let backview = UIView()
+                indicatorView.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+                backview.frame = CGRect(x: (SCREEN_WIDTH - 20) / 2, y: 0, width: 20, height: 20)
+                backview.addSubview(indicatorView)
+                indicatorView.center = backview.center
+                return backview
             }
         }
         return nil

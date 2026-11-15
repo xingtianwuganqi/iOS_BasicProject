@@ -1,5 +1,5 @@
 //
-//  PhoneType.h
+//  PhoneTypeServer.h
 //  LoveCat
 //
 //  Created by jingjun on 2021/1/10.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PhoneType : NSObject
+@interface PhoneTypeServer : NSObject
 + (NSString *)getDeviceModel;
 @end
 
